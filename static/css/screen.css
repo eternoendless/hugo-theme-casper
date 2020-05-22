@@ -596,6 +596,17 @@ body.nav-opened .site-wrapper {
     font-size: 2em;
 }
 
+.main-header.no-cover a.bloglogo .icon-linkedin,
+.main-header.no-cover a.bloglogo .icon-codepen,
+.main-header.no-cover a.bloglogo .icon-github,
+.main-header.no-cover a.bloglogo .icon-twitter,
+.main-header.no-cover a.bloglogo .icon-facebook,
+.main-header.no-cover a.bloglogo .icon-instagram,
+.main-header.no-cover a.bloglogo .icon-pinterest,
+.main-header.no-cover a.bloglogo .icon-google-plus {
+    color: #4A4A4A;
+}
+
 .main-nav {
     position: relative;
     padding: 35px 40px;
@@ -1003,10 +1014,6 @@ body.nav-opened .menu-button .word {
     padding-bottom: 4rem;
     border-bottom: #EBF2F6 1px solid;
     word-wrap: break-word;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
 }
 
 /* Add a little circle in the middle of the border-bottom on our .post
