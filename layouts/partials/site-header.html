@@ -1,4 +1,5 @@
 <div class="main-header-content inner">
+    <div class="main-header-image"><img src="{{ .Site.Params.authoravatar | relURL }}" alt="{{ .Site.Params.author }}'s picture"></div>
     <h1 class="page-title">{{ .Site.Title }}</h1>
     <h2 class="page-description">{{ .Site.Params.description }}</h2>
     {{ partial "social.html" . }}
