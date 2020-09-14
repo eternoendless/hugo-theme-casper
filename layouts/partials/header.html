@@ -46,8 +46,8 @@
     <link rel="shortcut icon" href="{{ "images/favicon.ico" | relURL}}">
 	  <link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL}}" />
 
-    <link rel="stylesheet" type="text/css" href="{{ "css/screen.css" | relURL}}" />
-    <link rel="stylesheet" type="text/css" href="{{ "css/nav.css" | relURL}}" />
+    {{ $style := resources.Get "style/main.scss" | toCSS (dict "outputStyle" "compressed" "enableSourceMap" true) | fingerprint }}
+    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink | relURL }}" />
 
     {{ range .Site.Params.customCSS }}
     <link rel="stylesheet" href="{{ . | relURL }}">
