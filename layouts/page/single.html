@@ -8,25 +8,10 @@
   {{ else }}
   <header class="main-header post-head" style="background-image: url({{.Params.image | relURL}})">
   {{ end }}
-  <nav class="main-nav overlay clearfix">
 {{else}}
-<header class="main-header post-head no-cover">
-    <nav class="main-nav overlay clearfix">
+  <header class="main-header post-head no-cover">
 {{end}}
-
-      {{ if .Site.Params.logo }}
-        <a class="blog-logo" href="{{.Site.BaseURL}}"><img src="{{ .Site.Params.logo | relURL }}" alt="Home" /></a>
-      {{end}}
-      {{ if .Site.Menus.main }}
-          <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
-      {{else}}
-        {{ if .Site.Params.RelPermalink}}
-	<a class="menu-button icon-feed" href="{{ with .OutputFormats.Get "RSS" }} {{ .RelPermalink }} {{ end }}">&nbsp;&nbsp;Subscribe</a>
-        {{else}}
-	<a class="menu-button icon-feed" href="{{ with .OutputFormats.Get "RSS" }} {{ .RelPermalink }} {{ end }}">&nbsp;&nbsp;Subscribe</a>
-        {{end}}
-      {{end}}
-    </nav>
+    {{ partial "nav.html" . }}
 
     {{if eq .Params.index true}}
     <div class="vertical">
