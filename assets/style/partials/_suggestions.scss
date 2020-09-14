@@ -27,88 +27,93 @@
   background: #222 no-repeat center center;
   background-size: cover;
   overflow: hidden;
-}
-.read-next-story:hover:before {
-  background: rgba(0,0,0,0.8);
-  transition: all 0.2s ease;
-}
-.read-next-story:hover .post:before {
-  color: #222;
-  background: #fff;
-  transition: all 0.2s ease;
-}
 
-.read-next-story:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0,0,0,0.7);
-  transition: all 0.5s ease;
-}
+  &:hover {
+    &:before {
+      background: rgba(0, 0, 0, 0.8);
+      transition: all 0.2s ease;
+    }
 
-.read-next-story .post {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  border-bottom: none;
-}
+    .post:before {
+      color: #222;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+  }
 
-.read-next-story .post:before {
-  content: "Read This Next";
-  padding: 4px 10px 5px;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  font-family: "Open Sans", sans-serif;
-  color: rgba(255,255,255,0.8);
-  border: rgba(255,255,255,0.5) 1px solid;
-  border-radius: 4px;
-  transition: all 0.5s ease;
-}
-.read-next-story.prev .post:before {
-  content: "You Might Enjoy";
-}
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: all 0.5s ease;
+  }
 
-.read-next-story h2 {
-  margin-top: 1rem;
-  color: #fff;
-}
+  .post {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    border-bottom: none;
 
-.read-next-story p {
-  margin: 0;
-  color: rgba(255,255,255,0.8);
-}
+    &:before {
+      content: "Read This Next";
+      padding: 4px 10px 5px;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      font-family: "Open Sans", sans-serif;
+      color: rgba(255, 255, 255, 0.8);
+      border: rgba(255, 255, 255, 0.5) 1px solid;
+      border-radius: 4px;
+      transition: all 0.5s ease;
+    }
+  }
 
-/* Special styles for posts with no cover images */
-.read-next-story.no-cover {
-  background: #f5f8fa;
-}
+  &.prev .post:before {
+    content: "You Might Enjoy";
+  }
 
-.read-next-story.no-cover:before {
-  display: none;
-}
+  h2 {
+    margin-top: 1rem;
+    color: #fff;
+  }
 
-.read-next-story.no-cover .post:before {
-  color: rgba(0,0,0,0.5);
-  border-color: rgba(0,0,0,0.2);
-}
+  p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+  }
 
-.read-next-story.no-cover h2 {
-  color: rgba(0,0,0,0.8);
-}
+  /* Special styles for posts with no cover images */
+  &.no-cover {
+    background: #f5f8fa;
 
-.read-next-story.no-cover p {
-  color: rgba(0,0,0,0.5);
-}
+    &:before {
+      display: none;
+    }
 
-/* if there are two posts without covers, put a border between them */
-.read-next-story.no-cover + .read-next-story.no-cover {
-  border-left: rgba(0,0,100,0.04) 1px solid;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+    .post:before {
+      color: rgba(0, 0, 0, 0.5);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    p {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* if there are two posts without covers, put a border between them */
+    + .read-next-story.no-cover {
+      border-left: rgba(0, 0, 100, 0.04) 1px solid;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  }
 }
 
 /* Correctly position site-footer when next to the .read-next container */
@@ -130,10 +135,9 @@
     /*margin-top: 4rem;*/
     margin-top: 0;
 
-  }
-
-  .read-next p {
-    display: none;
+    p {
+      display: none;
+    }
   }
 
   .read-next-story.no-cover + .read-next-story.no-cover {
@@ -147,9 +151,9 @@
   .read-next {
     margin-top: 0;
     margin-bottom: -37px;
-  }
 
-  .read-next .post {
-    width: 100%;
+    .post {
+      width: 100%;
+    }
   }
 }

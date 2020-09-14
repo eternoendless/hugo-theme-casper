@@ -34,11 +34,12 @@
     border-color: transparent;
     color: #2e2e2e;
     background: transparent;
-  }
-  .menu-button:hover {
-    color: #2e2e2e;
-    border-color: transparent;
-    background: none;
+
+    &:hover {
+      color: #2e2e2e;
+      border-color: transparent;
+      background: none;
+    }
   }
   body.nav-opened .menu-button {
     background: none !important;
@@ -51,11 +52,14 @@
     background: transparent;
   }
 
-  .no-cover .main-nav.overlay {
-    background: none;
-  }
-  .no-cover .main-nav.overlay .menu-button {
-    border: none;
+  .no-cover {
+    .main-nav.overlay {
+      background: none;
+    }
+
+    .main-nav.overlay .menu-button {
+      border: none;
+    }
   }
 
   .main-nav.overlay .menu-button {
@@ -84,10 +88,7 @@
 
   .post {
     width: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-left: 16px;
-    margin-right: 16px;
+    margin: 2rem 16px;
     padding-bottom: 2rem;
     line-height: 1.65em;
   }
@@ -96,12 +97,14 @@
     display: none;
   }
 
-  .post-template .post-header {
-    margin-bottom: 2rem;
-  }
+  .post-template {
+    .post-header {
+      margin-bottom: 2rem;
+    }
 
-  .post-template .post-date {
-    display: inline-block;
+    .post-date {
+      display: inline-block;
+    }
   }
 
   hr {
@@ -160,13 +163,15 @@
     font-size: 2.5rem;
   }
 
-  .post-template .post {
-    padding-bottom: 0;
-    margin-bottom: 0;
-  }
+  .post-template {
+    .post {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
 
-  .post-template .site-footer {
-    margin-top: 0;
+    .site-footer {
+      margin-top: 0;
+    }
   }
 
   .post-content img {
@@ -184,31 +189,33 @@
   .post-footer {
     padding: 5rem 0 3rem 0;
     text-align: center;
+
+    .author {
+      margin: 0 0 2rem 0;
+      padding: 0 0 1.6rem 0;
+      border-bottom: #EBF2F6 1px dashed;
+    }
+
+    .share {
+      position: static;
+      width: auto;
+
+      a {
+        margin: 1.4rem 0.8rem 0 0.8rem;
+      }
+    }
   }
 
-  .post-footer .author {
-    margin: 0 0 2rem 0;
-    padding: 0 0 1.6rem 0;
-    border-bottom: #EBF2F6 1px dashed;
-  }
+  .author-meta {
+    li {
+      float: none;
+      margin: 0;
+      line-height: 1.75em;
 
-  .post-footer .share {
-    position: static;
-    width: auto;
-  }
-
-  .post-footer .share a {
-    margin: 1.4rem 0.8rem 0 0.8rem;
-  }
-
-  .author-meta li {
-    float: none;
-    margin: 0;
-    line-height: 1.75em;
-  }
-
-  .author-meta li:before {
-    display: none;
+      &:before {
+        display: none;
+      }
+    }
   }
 
   .older-posts,
@@ -238,12 +245,14 @@
     height: 20vh;
   }
 
-  .author-profile .author-image {
-    margin-top: -70px;
-  }
+  .author-profile {
+    .author-image {
+      margin-top: -70px;
+    }
 
-  .author-profile .author-meta span {
-    font-size: 1.4rem;
+    .author-meta span {
+      font-size: 1.4rem;
+    }
   }
 
   .archive-template .main-header .page-description {

@@ -1,0 +1,53 @@
+/* Big cover image on the home page */
+.main-header {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 5rem;
+  text-align: center;
+  background: #222 no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+
+  .inner {
+    width: 80%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .social {
+    a {
+      display: inline-block;
+    }
+
+    .icon-linkedin,
+    .icon-codepen,
+    .icon-github,
+    .icon-twitter,
+    .icon-facebook,
+    .icon-instagram,
+    .icon-pinterest,
+    .icon-google-plus {
+      color: white;
+      font-size: 1.5em;
+    }
+  }
+
+  &.no-cover {
+    a {
+      .icon-linkedin,
+      .icon-codepen,
+      .icon-github,
+      .icon-twitter,
+      .icon-facebook,
+      .icon-instagram,
+      .icon-pinterest,
+      .icon-google-plus {
+        color: #4A4A4A;
+      }
+    }
+  }
+}

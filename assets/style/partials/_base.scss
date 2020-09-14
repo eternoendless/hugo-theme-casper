@@ -69,10 +69,10 @@ h6 {
 a {
   color: #4A4A4A;
   transition: color 0.3s ease;
-}
 
-a:hover {
-  color: #111;
+  &:hover {
+    color: #111;
+  }
 }
 
 p, ul, ol, dl {
@@ -133,27 +133,31 @@ blockquote {
   margin: 1.75em 0 1.75em -2.2em;
   padding: 0 0 0 1.75em;
   border-left: #4A4A4A 0.4em solid;
+
+  p {
+    margin: 0.8em 0;
+    font-style: italic;
+  }
+
+  small {
+    display: inline-block;
+    margin: 0.8em 0 0.8em 1.5em;
+    font-size: 0.9em;
+    color: #CCC;
+
+    &:before {
+      content: "\2014 \00A0";
+    }
+  }
+
+  cite {
+    font-weight: 700;
+
+    a {
+      font-weight: normal;
+    }
+  }
 }
-
-blockquote p {
-  margin: 0.8em 0;
-  font-style: italic;
-}
-
-blockquote small {
-  display: inline-block;
-  margin: 0.8em 0 0.8em 1.5em;
-  font-size: 0.9em;
-  color: #CCC;
-}
-
-blockquote small:before { content: "\2014 \00A0"; }
-
-blockquote cite {
-  font-weight: 700;
-}
-
-blockquote cite a { font-weight: normal; }
 
 mark {
   background-color: #FFC336;
@@ -182,14 +186,15 @@ pre {
   overflow: auto;
   background: #F7FAFB;
   border-radius: 3px;
-}
 
-pre code, pre tt {
-  font-size: inherit;
-  white-space: pre-wrap;
-  background: transparent;
-  border: none;
-  padding: 0;
+  code,
+  tt {
+    font-size: inherit;
+    white-space: pre-wrap;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
 }
 
 kbd {
@@ -203,9 +208,8 @@ kbd {
   font-weight: 700;
   background: #F4F4F4;
   border-radius: 4px;
-  box-shadow:
-          0 1px 0 rgba(0, 0, 0, 0.2),
-          0 1px 0 0 #fff inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2),
+              0 1px 0 0 #fff inset;
 }
 
 table {
@@ -215,43 +219,43 @@ table {
   width: 100%;
   max-width: 100%;
   background-color: transparent;
+
+  th,
+  td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: #EFEFEF 1px solid;
+  }
+
+  th {
+    color: #000;
+  }
+
+  caption + thead tr:first-child th,
+  caption + thead tr:first-child td,
+  colgroup + thead tr:first-child th,
+  colgroup + thead tr:first-child td,
+  thead:first-child tr:first-child th,
+  thead:first-child tr:first-child td {
+    border-top: 0;
+  }
+
+  tbody + tbody { border-top: #EFEFEF 2px solid; }
+  table table { background-color: #FFF; }
+  tbody > tr:nth-child(odd) > td,
+  tbody > tr:nth-child(odd) > th {
+    background-color: #F6F6F6;
+  }
+  &.plain tbody > tr:nth-child(odd) > td,
+  &.plain tbody > tr:nth-child(odd) > th {
+    background: transparent;
+  }
 }
 
-table th,
-table td {
-  padding: 8px;
-  line-height: 20px;
-  text-align: left;
-  vertical-align: top;
-  border-top: #EFEFEF 1px solid;
-}
-
-table th { color: #000; }
-
-table caption + thead tr:first-child th,
-table caption + thead tr:first-child td,
-table colgroup + thead tr:first-child th,
-table colgroup + thead tr:first-child td,
-table thead:first-child tr:first-child th,
-table thead:first-child tr:first-child td {
-  border-top: 0;
-}
-
-table tbody + tbody { border-top: #EFEFEF 2px solid; }
-
-table table table { background-color: #FFF; }
-
-table tbody > tr:nth-child(odd) > td,
-table tbody > tr:nth-child(odd) > th {
-  background-color: #F6F6F6;
-}
-
-table.plain tbody > tr:nth-child(odd) > td,
-table.plain tbody > tr:nth-child(odd) > th {
-  background: transparent;
-}
-
-iframe, .fluid-width-video-wrapper {
+iframe,
+.fluid-width-video-wrapper {
   display: block;
   margin: 1.75em 0;
 }
