@@ -19,8 +19,11 @@
   }
 
   .social {
+    margin: 2rem;
+
     a {
       display: inline-block;
+      margin: 0 .5rem;
     }
 
     .icon-linkedin,
@@ -37,17 +40,15 @@
   }
 
   &.no-cover {
-    a {
-      .icon-linkedin,
-      .icon-codepen,
-      .icon-github,
-      .icon-twitter,
-      .icon-facebook,
-      .icon-instagram,
-      .icon-pinterest,
-      .icon-google-plus {
-        color: #4A4A4A;
-      }
+    .icon-linkedin,
+    .icon-codepen,
+    .icon-github,
+    .icon-twitter,
+    .icon-facebook,
+    .icon-instagram,
+    .icon-pinterest,
+    .icon-google-plus {
+      color: #4A4A4A;
     }
   }
 }
