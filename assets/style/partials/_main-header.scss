@@ -50,6 +50,7 @@
   }
 
   &.no-cover {
+
     .icon-linkedin,
     .icon-codepen,
     .icon-github,
@@ -60,5 +61,46 @@
     .icon-google-plus {
       color: #4A4A4A;
     }
+
+    .main-nav.overlay,
+    .menu-button {
+      background: none;
+    }
+
+    .main-nav.overlay a {
+      color: #4A4A4A;
+    }
+
+
+  }
+
+  // post header when using cover image
+  &.post-head:not(.no-cover) {
+    .main-header-content {
+      background-color: #0006;
+      justify-content: center;
+      h1 {
+        color: #fff;
+        text-shadow: 0px 0px 3px #0002;
+        width: 80%;
+        max-width: $content-max-width + ($content-max-width/2);
+      }
+    }
+
+    .blog-logo {
+      transition: all .5s ease;
+      text-shadow: 0 0 2px #0005;
+      .logo {
+        transition: all .5s ease;
+        box-shadow: 0 0 2px #0005;
+      }
+      &:hover {
+        text-shadow: 0 0 3px #000c;
+        .logo {
+          box-shadow: 0 0 3px #000c;
+        }
+      }
+    }
+
   }
 }

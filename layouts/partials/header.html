@@ -32,7 +32,7 @@
     <meta property="og:description" content="{{ .Site.Params.description }}" />
     {{ end }}
 
-    <title>{{ if ne .Permalink "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
+    <title>{{ if .IsHome }}{{ .Site.Params.Description }}{{ else }}{{ .Title }}{{ end }} &middot; {{ .Site.Title }}</title>
 
     {{ if .IsPage }}
     <meta name="description" content="{{ .Description | default (substr .Summary 0 160) }}" />
@@ -44,7 +44,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="{{ "images/favicon.ico" | relURL}}">
-	  <link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL}}" />
+    <link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL}}" />
 
     {{ $style := resources.Get "style/main.scss" | toCSS (dict "outputStyle" "compressed" "enableSourceMap" true) | fingerprint }}
     <link rel="stylesheet" type="text/css" href="{{ $style.Permalink | relURL }}" />

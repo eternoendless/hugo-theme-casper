@@ -30,8 +30,10 @@
 
 /* Centres vertically yo. (IE8+) */
 .vertical {
-  display: table-cell;
+  display: flex;
   vertical-align: middle;
+  align-items: center;
+  height: 100%;
 }
 
 /* Wraps the main content & footer */

@@ -1,23 +1,30 @@
 {{ partial "header.html" . }}
 
 {{if .Params.image}}
-  {{if or (eq (substr .Params.image 0 7) "http://") (eq (substr .Params.image 0 8) "https://")}}
-  <header class="main-header post-head" style="background-image: url({{.Params.image }})">
-  {{ else }}
-  <header class="main-header post-head" style="background-image: url({{.Params.image | relURL}})">
-  {{ end }}
+    {{ $imgURL := .Params.image }}
+    {{if and (ne (substr .Params.image 0 7) "http://") (ne (substr .Params.image 0 8) "https://")}}
+        {{ $imgURL := $imgURL | relURL }}
+    {{ end }}
+  <header class="main-header post-head" style="background-image: url({{ $imgURL }})">
+    {{ partial "nav.html" . }}
+      <div class="main-header-content vertical">
+          <h1 class="post-title">{{.Title}}</h1>
+      </div>
+  </header>
 {{else}}
   <header class="main-header post-head no-cover">
-{{ end }}
     {{ partial "nav.html" . }}
-</header>
+  </header>
+{{ end }}
 
 <main class="content content-single" role="main">
 
   <article class="post {{ .Section }}">
 
     <header class="post-header">
+        {{ if not .Params.image }}
         <h1 class="post-title">{{.Title}}</h1>
+        {{ end }}
         <small>{{.Description}}</small>
 
         <section class="post-meta">
@@ -39,11 +46,11 @@
 
   <footer class="post-footer">
 
-    {{ partial "author.html" . }}
+      {{ partial "share.html" . }}
 
-    {{ partial "share.html" . }}
+      {{ partial "author.html" . }}
 
-    {{ partial "disqus.html" . }}
+      {{ partial "disqus.html" . }}
 
   </footer>
 </article>
