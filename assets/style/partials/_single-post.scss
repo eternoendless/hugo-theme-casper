@@ -35,7 +35,10 @@
       display: none;
     }
   }
+}
 
+.post-content {
+  margin-top: 2rem;
 
   /* Keep images centered, and allow images wider than the main
      text column to break out. */
@@ -43,7 +46,7 @@
     display: block;
     max-width: 126%;
     height: auto;
-    padding: 0.6em 0;
+    padding: 0;
     /* Centers an image by (1) pushing its left edge to the
        center of its container and (2) shifting the entire image
        in the opposite direction by half its own width.
@@ -60,9 +63,12 @@
 .post-footer {
   position: relative;
   margin: 6rem 0 0 0;
-  padding: 6rem 0 0 0;
+  padding: 2rem 0 0 0;
   border-top: #EBF2F6 1px solid;
-
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
 
   h4 {
     font-size: 1.8rem;
@@ -115,9 +121,6 @@
      to be flexible at smaller screen sizes while the share
      links remain at a fixed width the whole time */
   .share {
-    position: absolute;
-    top: 6rem;
-    right: 0;
     width: 180px;
 
     a {

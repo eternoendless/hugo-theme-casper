@@ -7,7 +7,7 @@
   -webkit-align-items: stretch;
   -ms-flex-align: stretch;
   align-items: stretch;
-  /*margin-top: 10rem;*/
+  background: #222;
 }
 
 .read-next-story {
@@ -24,8 +24,6 @@
   position: relative;
   text-align: center;
   color: #fff;
-  background: #222 no-repeat center center;
-  background-size: cover;
   overflow: hidden;
 
   &:hover {
@@ -151,6 +149,7 @@
   .read-next {
     margin-top: 0;
     margin-bottom: -37px;
+    padding-bottom: 37px;
 
     .post {
       width: 100%;

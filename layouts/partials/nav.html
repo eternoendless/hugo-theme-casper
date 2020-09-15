@@ -4,7 +4,7 @@
         {{ if .Site.Params.logo }}
             <a class="blog-logo" href="{{.Site.BaseURL}}"><img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" /></a>
         {{else}}
-            <a class="blog-logo" href="{{.Site.BaseURL}}">{{ .Site.Title }}</a>
+            <a class="blog-logo" href="{{.Site.BaseURL}}"><span class="logo"></span>{{ .Site.Title }}</a>
         {{end}}
     {{ end }}
 

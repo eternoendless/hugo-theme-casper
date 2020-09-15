@@ -7,15 +7,15 @@
 {{$authoravatar := or .Params.authoravatar .Site.Params.authoravatar }}
 
 {{with $authoravatar}}
-<figure class="author-image">
+<!--<figure class="author-image">
     <a class="img" href="{{$.Site.BaseURL}}" style="background-image: url({{. | relURL}})"><span class="hidden">{{$authorname}}'s Picture</span></a>
-</figure>
+</figure>-->
 {{end}}
 
 <section class="author">
-  <h4><a href="{{.Site.BaseURL}}">{{$authorname}}</a></h4>
+  <h4>About the author</h4>
   {{if $authorbio}}
-  <p>{{$authorbio}}</p>
+  <p>{{$authorbio}} <a href="{{ ref . "/about" }}">Read more</a></p>
   {{else}}
   <p>Read <a href="{{.Site.BaseURL}}">more posts</a> by this author.</p>
   {{end}}

@@ -7,9 +7,8 @@
         {{if .Params.excerpt }}
             {{ .Params.excerpt }}
         {{else}}
-            {{ .Summary }}
+            {{ .Summary | truncate 150 }}
         {{end}}
-            <a class="read-more" href="{{.RelPermalink}}">Read more</a>
         </p>
     </section>
     <footer class="post-meta">
