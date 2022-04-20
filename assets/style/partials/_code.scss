@@ -1,0 +1,14 @@
+.highlight {
+  line-height: 1.2em;
+  margin: {
+    left: -2rem;
+    right: -2rem;
+  }
+
+  /* In order to have correct background when using the monokai pygments style*/
+  pre {
+    padding: 2rem;
+    background-color: inherit;
+    color: #f8f8f2;
+  }
+}

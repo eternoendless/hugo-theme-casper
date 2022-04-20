@@ -130,9 +130,12 @@ hr {
 blockquote {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 1.75em 0 1.75em -2.2em;
+  margin: 1.75em 0 1.75em -2em;
   padding: 0 0 0 1.75em;
-  border-left: #4A4A4A 0.4em solid;
+  border-left: #909090 0.3em solid;
+  color: #555;
+  font-size: 90%;
+  line-height: 1.75em;
 
   p {
     margin: 0.8em 0;
@@ -166,11 +169,11 @@ mark {
 code, tt {
   padding: 1px 3px;
   font-family: Inconsolata, monospace, sans-serif;
-  font-size: 0.85em;
   white-space: pre-wrap;
-  border: #E3EDF3 1px solid;
+  border: #e0e0e0 1px solid;
   background: #F7FAFB;
   border-radius: 2px;
+  color: #c00;
 }
 
 pre {
@@ -189,8 +192,9 @@ pre {
 
   code,
   tt {
+    color: #f8f8f2;
     font-size: inherit;
-    white-space: pre-wrap;
+    white-space: pre;
     background: transparent;
     border: none;
     padding: 0;
