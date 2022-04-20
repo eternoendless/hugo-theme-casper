@@ -54,6 +54,13 @@
     padding-left: 2em;
   }
 
+  // post header when using cover image
+  .main-header.post-head:not(.no-cover) {
+    .main-header-content h1 {
+      font-size: 5rem;
+    }
+  }
+
   h1 {
     font-size: 4.5rem;
     text-indent: -2px;
@@ -94,10 +101,6 @@
     .author-meta span {
       font-size: 1.6rem;
     }
-  }
-
-  .post-head.main-header {
-    height: 45vh;
   }
 
   .tag-head.main-header,

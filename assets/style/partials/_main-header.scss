@@ -74,6 +74,11 @@
 
   }
 
+  &.post-head {
+    height: 50vh;
+    min-height: 15em;
+  }
+
   // post header when using cover image
   &.post-head:not(.no-cover) {
     .main-header-content {
@@ -85,6 +90,7 @@
         width: 80%;
         font-size: 7rem;
         max-width: $content-max-width + ($content-max-width/2);
+        margin-top: 1em;
       }
     }
 

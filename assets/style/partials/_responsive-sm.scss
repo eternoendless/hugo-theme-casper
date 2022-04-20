@@ -133,6 +133,13 @@
     margin: 0 0 0.3em 0;
   }
 
+  // post header when using cover image
+  .main-header.post-head:not(.no-cover) {
+    .main-header-content h1 {
+      font-size: 3.5rem;
+    }
+  }
+
   h1 {
     font-size: 2.8rem;
     letter-spacing: -1px;
@@ -234,10 +241,6 @@
 
   .author-profile {
     padding-bottom: 2rem;
-  }
-
-  .post-head.main-header {
-    height: 30vh;
   }
 
   .tag-head.main-header,
