@@ -35,7 +35,7 @@
         {{end}}
         {{ if and (ne .Params.comments false) .Site.DisqusShortname }}
           — <span class="num-comments">
-            <a href="{{ .Permalink }}#disqus_thread"></a>
+            <a href="{{ .Permalink }}#disqus_thread" data-disqus-identifier="{{ .RelPermalink }}"></a>
           </span>
         {{ end }}
         </section>
