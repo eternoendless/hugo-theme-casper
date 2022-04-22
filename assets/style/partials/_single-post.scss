@@ -86,25 +86,6 @@
   }
 }
 
-/* The author credit area after the post */
-.post-footer {
-  position: relative;
-  margin: 6rem 0 0 0;
-  padding: 2rem 0 0 0;
-  border-top: #EBF2F6 1px solid;
-
-  h4 {
-    font-size: 1.8rem;
-    margin: 0;
-  }
-
-  p {
-    margin: 1rem 0;
-    font-size: 1.4rem;
-    line-height: 1.75em;
-  }
-}
-
 /* list of author links - location / url */
 .author-meta {
   padding: 0;
@@ -124,10 +105,49 @@
   }
 }
 
-/* Create some space to the right for the share links */
+.post-header {
+  .post-meta {
+    .post-date {
+      border: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+/* The author credit area after the post */
 .post-footer {
+  position: relative;
+  margin: 6rem 0 0 0;
+  padding: 0;
+  border-top: #EBF2F6 1px solid;
+
+  h4 {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  p {
+    margin: 1rem 0;
+    font-size: 1.4rem;
+    line-height: 1.75em;
+  }
+
+  .labels {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.4rem;
+    color: #585e65;
+    margin-top: 1rem;
+
+    .post-tag :not(:hover) {
+      color: #585e65;
+      text-decoration: none;
+    }
+  }
+
+  /* Create some space to the right for the share links */
   .author {
-    margin-right: 180px;
+    margin: 2rem 180px 0 0;
   }
 
   h4 a {
@@ -159,4 +179,7 @@
     }
   }
 
+  #disqus_thread {
+    margin-top: 7rem;
+  }
 }

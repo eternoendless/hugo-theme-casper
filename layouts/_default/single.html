@@ -33,9 +33,11 @@
             {{ .Date.Format "Jan 2, 2006" }}
           </time>
         {{end}}
-         {{ range .Params.tags }}
-          <span class="post-tag small"><a href="{{$.Site.BaseURL}}/tags/{{ . | urlize }}/">#{{ . }}</a></span>
-         {{ end }}
+        {{ if and (ne .Params.comments false) .Site.DisqusShortname }}
+          — <span class="num-comments">
+            <a href="{{ .Permalink }}#disqus_thread"></a>
+          </span>
+        {{ end }}
         </section>
     </header>
 
@@ -46,7 +48,12 @@
 
   <footer class="post-footer">
 
-      {{ partial "share.html" . }}
+      <section class="labels">
+          Topics:
+      {{ range .Params.tags }}
+          <span class="post-tag small"><a href="{{$.Site.BaseURL}}/tags/{{ . | urlize }}/">#{{ . }}</a></span>
+      {{ end }}
+      </section>
 
       {{ partial "author.html" . }}
 

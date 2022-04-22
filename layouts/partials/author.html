@@ -15,7 +15,7 @@
 <section class="author">
   <h4>About the author</h4>
   {{if $authorbio}}
-  <p>{{$authorbio}} <a href="{{ ref . "/about" }}">Read more</a></p>
+  <p>{{$authorbio}}<br><a href="{{ ref . "/about" }}">More about me</a></p>
   {{else}}
   <p>Read <a href="{{.Site.BaseURL}}">more posts</a> by this author.</p>
   {{end}}

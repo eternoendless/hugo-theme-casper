@@ -1,5 +1,4 @@
-{{ if ne .Params.comments false}}
-{{ if .Site.DisqusShortname }}
+{{ if and .Site.DisqusShortname (ne .Params.comments false) }}
 <div id="disqus_thread"></div>
 <script>
 
@@ -20,8 +19,7 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-{{ end }}
+<script id="dsq-count-scr" src="//pabloborowicz.disqus.com/count.js" async></script>
 {{ end }}
 
 
