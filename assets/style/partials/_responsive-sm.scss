@@ -41,6 +41,7 @@
       background: none;
     }
   }
+
   body.nav-opened .menu-button {
     background: none !important;
     border: transparent !important;
@@ -91,6 +92,17 @@
     margin: 2rem 16px;
     padding-bottom: 2rem;
     line-height: 1.65em;
+  }
+
+  .post-list-item {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .post-list-thumbnail {
+    width: 100%;
+    height: 190px;
+    flex: 0 0 auto;
   }
 
   .post-date {
