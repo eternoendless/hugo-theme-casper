@@ -49,7 +49,7 @@
                     {{end*/}}
                 {{end}}
 
-                {{if .Params.tags }}on
+                {{if .Params.tags }}
                     {{ range $index, $tag := .Params.tags }}{{ if gt $index 0 }}, {{ end }}
                         <a href="{{$.Site.BaseURL}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
                     {{ end }}
