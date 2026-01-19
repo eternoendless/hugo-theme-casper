@@ -1,5 +1,4 @@
-{{ partial "header.html" . }}
-
+{{ define "main" }}
 {{if .Site.Params.cover}}
 <header class="main-header " style="background-image: url({{ .Site.Params.cover | relURL}})">
 {{else}}
@@ -35,4 +34,5 @@
     <p>Please head back <a href="/">home</a>.</p>
   </article>
 
-{{ partial "footer.html" . }}
+</main>
+{{ end }}

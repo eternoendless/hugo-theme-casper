@@ -1,5 +1,4 @@
-{{ partial "header.html" . }}
-
+{{ define "main" }}
 {{if .Site.Params.cover}}
 {{if or (hasPrefix .Site.Params.cover "http://") (hasPrefix .Site.Params.cover "https://")}}
   <header class="main-header" style="background-image: url({{.Site.Params.cover}})">
@@ -24,5 +23,4 @@
 {{ partial "home-content.html" . }}
 
 </main>
-
-{{ partial "footer.html" . }}
+{{ end }}

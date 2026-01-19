@@ -1,5 +1,4 @@
-{{ partial "header.html" . }}
-
+{{ define "main" }}
 {{if .Params.image}}
     {{ $imgURL := .Params.image }}
     {{if and (not (hasPrefix .Params.image "http://")) (not (hasPrefix .Params.image "https://"))}}
@@ -67,5 +66,4 @@
 {{if not .Params.hideSuggestions }}
   {{ partial "suggestions.html" . }}
 {{ end }}
-
-{{ partial "footer.html" . }}
+{{ end }}

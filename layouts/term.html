@@ -1,5 +1,4 @@
-{{ partial "header.html" . }}
-
+{{ define "main" }}
 {{if .Params.cover}}
   {{if or (hasPrefix .Params.cover "http://") (hasPrefix .Params.cover "https://")}}
     <header class="main-header tag-head" style="background-image: url({{.Params.cover}})">
@@ -44,7 +43,4 @@
 
 	{{ partial "pagination.html" $paginator }}
 </main>
-
-
-
-{{ partial "footer.html" . }}
+{{ end }}
