@@ -2,7 +2,7 @@
 
 {{if .Params.image}}
     {{ $imgURL := .Params.image }}
-    {{if and (ne (substr .Params.image 0 7) "http://") (ne (substr .Params.image 0 8) "https://")}}
+    {{if and (not (hasPrefix .Params.image "http://")) (not (hasPrefix .Params.image "https://"))}}
         {{ $imgURL := $imgURL | relURL }}
     {{ end }}
   <header class="main-header post-head" style="background-image: url({{ $imgURL }})">
