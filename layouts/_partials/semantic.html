@@ -1,39 +1,47 @@
+{{- $authorName := default .Site.Title .Site.Params.author -}}
+{{- $authorBio := or .Site.Params.authorbio .Site.Params.authorBio -}}
+{{- $authorWebsite := or .Site.Params.authorwebsite .Site.Params.authorWebsite -}}
+{{- $authorImage := or .Site.Params.logo .Site.Params.authoravatar -}}
+{{- $socialLinks := slice -}}
+{{- with .Site.Params.github }}{{ $socialLinks = $socialLinks | append . }}{{ end -}}
+{{- with .Site.Params.facebook }}{{ $socialLinks = $socialLinks | append . }}{{ end -}}
+{{- with .Site.Params.linkedin }}{{ $socialLinks = $socialLinks | append . }}{{ end -}}
+{{- with .Site.Params.twitter }}{{ $socialLinks = $socialLinks | append . }}{{ end -}}
+{{- with .Site.Params.githubName }}{{ $socialLinks = $socialLinks | append (printf "https://github.com/%s" .) }}{{ end -}}
+{{- with .Site.Params.linkedinName }}{{ $socialLinks = $socialLinks | append (printf "https://www.linkedin.com/in/%s" .) }}{{ end -}}
+{{- with .Site.Params.twitterName }}{{ $socialLinks = $socialLinks | append (printf "https://twitter.com/%s" .) }}{{ end -}}
 
-    {{ if .IsPage }}
-    <script type="application/ld+json">
+{{ if .IsPage }}
+<script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
-        "name": {{ .Site.Params.authorname }}{{ with .Site.Params.logo }},
-        "logo": {{ printf "%s%s" $.Site.BaseURL . }}{{end}}
+        "name": {{ $authorName }}{{ with $authorImage }},
+        "logo": {{ . | absURL }}{{ end }}
     },
     "author": {
         "@type": "Person",
-        "name": {{ .Site.Params.authorname }},
-        {{ with .Site.Params.logo }}
+        "name": {{ $authorName }},
+        {{ with $authorImage }}
         "image": {
             "@type": "ImageObject",
-            "url": {{ printf "%s%s" $.Site.BaseURL . }},
+            "url": {{ . | absURL }},
             "width": 250,
             "height": 250
         },
-        {{end}}
-        "url": {{ .Site.Params.authorwebsite }},
-        "sameAs": [
-            {{ $socialLinks := (slice .Site.Params.github .Site.Params.facebook .Site.Params.linkedin .Site.Params.twitter) }}
-            {{ $len := (sub (len $socialLinks) 1)}}
-            {{ range $index, $el := $socialLinks }} {{ if $el }}{{ $el }}{{ if (lt $index $len) }},{{end}}{{end}}
-            {{ end }}
-        ]{{ with .Site.Params.authorbio }},
-        "description": {{ . }}
-        {{end}}
+        {{ end }}
+        {{- with $authorWebsite }}
+        "url": {{ . }},
+        {{ end -}}
+        "sameAs": {{ $socialLinks }}{{ with $authorBio }},
+        "description": {{ . }}{{ end }}
     },
     "headline": {{ .Title }},
     "name": {{ .Title }},
     "wordCount": {{ .WordCount }},
-    "timeRequired": "PT{{ .ReadingTime }}M",
+    "timeRequired": {{ (printf "PT%dM" .ReadingTime) }},
     "inLanguage": {
       "@type": "Language",
       "alternateName": {{ .Site.Language.Lang }}
@@ -41,47 +49,43 @@
     "url": {{ .Permalink }},
     "datePublished": {{ .Date.Format "2006-01-02T15:04Z" }},
     "dateModified": {{ .Lastmod.Format "2006-01-02T15:04Z" }},
-    {{ with .Params.image }}
+    {{- with .Params.image }}
     "image": {
         "@type": "ImageObject",
-        "url": {{ printf "%s%s" $.Site.BaseURL . }},
+        "url": {{ . | absURL }},
         "width": 3000,
         "height": 1445
     },
-    {{end}}
-    {{ if (.Params.tags) }}"keywords": {{ delimit .Params.tags ", " }},{{end}}
-    "description": {{ .Description }},
+    {{- end }}
+    {{ with .Params.tags }}"keywords": {{ . }},{{ end }}
+    "description": {{ (default (.Summary | plainify) .Description) }},
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": {{ .Permalink }}
     }
 }
-    </script>
-    {{ else }}
-    <script type="application/ld+json">
-    {
+</script>
+{{ else }}
+<script type="application/ld+json">
+{
     "@context": "https://schema.org",
     "@type": "Website",
     "publisher": {
         "@type": "Person",
-        "name": {{ .Site.Params.authorname }},
-        {{ with .Site.Params.logo }}
+        "name": {{ $authorName }},
+        {{- with $authorImage }}
         "image": {
             "@type": "ImageObject",
-            "url": {{ printf "%s%s" $.Site.BaseURL . }},
+            "url": {{ . | absURL }},
             "width": 250,
             "height": 250
         },
-        {{end}}
-        "url": {{ .Site.Params.authorwebsite }},
-        "sameAs": [
-            {{ $socialLinks := (slice .Site.Params.github .Site.Params.facebook .Site.Params.linkedin .Site.Params.twitter) }}
-            {{ $len := (sub (len $socialLinks) 1)}}
-            {{ range $index, $el := $socialLinks }} {{ if $el }}{{ $el }}{{ if (lt $index $len) }},{{end}}{{end}}
-            {{ end }}
-        ]{{ with .Site.Params.authorbio }},
-        "description": {{ . }}
-        {{end}}
+        {{- end }}
+        {{- with $authorWebsite }}
+        "url": {{ . }},
+        {{ end }}
+        "sameAs": {{ $socialLinks }}{{ with $authorBio }},
+        "description": {{ . }}{{ end }}
     },
     "url": {{ .Site.BaseURL }},
     "mainEntityOfPage": {
@@ -90,6 +94,5 @@
     },
     "description": {{ .Site.Params.description }}
 }
-  </script>
-    {{ end }}
-
+</script>
+{{ end }}
