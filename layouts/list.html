@@ -18,12 +18,17 @@
 
     <div class="vertical">
         <div class="main-header-content inner">
-            <h1 class="page-title">{{.Title}}</h1>
+            {{ if eq .Kind "term" }}
+            <div class="page-description">
+                All my articles about
+            </div>
+            {{ end }}
+            <h1 class="page-title">{{ .Title }}</h1>
+            {{ with .Params.description }}
             <h2 class="page-description">
-                {{if .Params.description}}
-                    {{.Params.description}}
-                {{end}}
+                {{ . }}
             </h2>
+            {{ end }}
         </div>
     </div>
 </header>
