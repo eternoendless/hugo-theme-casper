@@ -7,7 +7,7 @@
 
     {{ partial "twitter_card.html" . }}
 
-  	<meta property="og:title" content="{{ if ne .Permalink "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
+  	<meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
   	<meta property="og:site_name" content="{{ .Site.Title }}" />
   	<meta property="og:url" content="{{ .Permalink }}" />
 
@@ -35,7 +35,7 @@
     <title>{{ if .IsHome }}{{ .Site.Params.Description }}{{ else }}{{ .Title }}{{ end }} &middot; {{ .Site.Title }}</title>
 
     {{ if .IsPage }}
-    <meta name="description" content="{{ .Description | default (substr .Summary 0 160) }}" />
+    <meta name="description" content="{{ .Description | default (.Summary | plainify | truncate 160 "...") }}" />
     {{ else }}
     <meta name="description" content="{{ .Site.Params.metadescription | default .Site.Params.description }}" />
     {{ end }}
@@ -67,11 +67,11 @@
     {{ if .Site.Params.RelPermalink}}
     <link href="{{ with .OutputFormats.Get "RSS" }} {{ .RelPermalink  }} {{ end }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{else}}
-      {{ if ne .Permalink "/" }}
+      {{ if not .IsHome }}
           <link href="{{ "index.xml" | relURL}}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
       {{ end }}
       {{if .IsNode}}
-      <link href="{{ with .OutputFormats.Get "RSS" }} {{ .RelPermalink }} {{ end }}" rel="alternate" type="application/rss+xml" title="{{ if ne .RelPermalink "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
+      <link href="{{ with .OutputFormats.Get "RSS" }} {{ .RelPermalink }} {{ end }}" rel="alternate" type="application/rss+xml" title="{{ if not .IsHome }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}" />
       {{end}}
     {{end}}
     {{hugo.Generator}}
