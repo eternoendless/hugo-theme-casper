@@ -64,10 +64,13 @@ nav {
         line-height: 1.2em;
 
         a {
-          text-decoration: none;
+          text-decoration: underline;
+          text-decoration-color: transparent;
+          text-underline-offset: 2px;
+          transition: text-decoration-color 0.2s ease;
 
           &:hover {
-            text-decoration: underline;
+            text-decoration-color: currentColor;
           }
         }
 
@@ -108,10 +111,13 @@ nav {
     a {
 
       line-height: 1.1em;
-      text-decoration: none;
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-underline-offset: 2px;
+      transition: text-decoration-color 0.2s ease;
 
       &:hover {
-        text-decoration: underline;
+        text-decoration-color: currentColor;
       }
     }
   }

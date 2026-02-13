@@ -1,44 +1,11 @@
-.post-template {
-  .post-header {
-    margin-bottom: 3.4rem;
-  }
-
-  .post-title {
-    margin-bottom: 0;
-  }
-
-  .post-meta {
-    margin: 0;
-  }
-
+.post-single {
   .post-date {
-    padding: 0;
-    margin: 0;
-    border: none;
-  }
-
-  /* Stop elements, such as img wider than the post content, from
-     creating horizontal scroll - slight hack due to imperfections
-     with browser width % calculations and rounding */
-  .content {
-    overflow: hidden;
-  }
-
-  /* Tweak the .post wrapper style */
-  .post {
-    margin-top: 0;
-    border-bottom: none;
-    padding-bottom: 0;
-
-    /* Kill that stylish little circle that was on the border, too */
-    &:after {
-      display: none;
-    }
+    text-transform: uppercase;
   }
 }
 
 .post-content {
-  margin-top: 2rem;
+  margin-top: 3rem;
 
   /* Keep images centered, and allow images wider than the main
      text column to break out. */
@@ -105,16 +72,6 @@
   }
 }
 
-.post-header {
-  .post-meta {
-    .post-date {
-      border: none;
-      margin-left: 0;
-      padding-left: 0;
-    }
-  }
-}
-
 /* The author credit area after the post */
 .post-footer {
   position: relative;
@@ -138,25 +95,27 @@
     font-size: 1.4rem;
     color: #585e65;
     margin-top: 1rem;
-
-    .post-tag :not(:hover) {
-      color: #585e65;
-      text-decoration: none;
+    
+    > * {
+      margin-right: 0.3rem;
     }
+
+    .post-tag {
+      &:not(:last-child)::after {
+        content: ",";
+      }
+
+      :not(:hover) {
+        color: #585e65;
+        text-decoration: none;
+      }
+    }
+
   }
 
   /* Create some space to the right for the share links */
   .author {
     margin: 2rem 180px 0 0;
-  }
-
-  h4 a {
-    color: #2e2e2e;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   /* Drop the share links in the space to the right.

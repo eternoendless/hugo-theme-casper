@@ -105,20 +105,6 @@
     flex: 0 0 auto;
   }
 
-  .post-date {
-    display: none;
-  }
-
-  .post-template {
-    .post-header {
-      margin-bottom: 2rem;
-    }
-
-    .post-date {
-      display: inline-block;
-    }
-  }
-
   hr {
     margin: 1.75em 0;
   }
@@ -178,19 +164,8 @@
     font-size: 1.8rem;
   }
 
-  body:not(.post-template) .post-title {
+  .post-title {
     font-size: 2.5rem;
-  }
-
-  .post-template {
-    .post {
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-
-    .site-footer {
-      margin-top: 0;
-    }
   }
 
   .post-content img {
@@ -203,6 +178,13 @@
   .post-meta {
     font-size: 1.3rem;
     margin-top: 1rem;
+  }
+
+  .post-list-content {
+    .post-meta {
+      margin-top: 1.1rem;
+      line-height: 1.45;
+    }
   }
 
   .post-footer {

@@ -36,26 +36,13 @@
                 </p>
             </section>
             <footer class="post-meta">
-                {{ if or .Params.author .Site.Params.author}}
-                    {{$authorname := or .Params.author .Site.Params.author }}
-                    {{$authoravatar := or .Params.authoravatar .Site.Params.logo }}
-
-                    {{with $authoravatar}}
-                        <img class="author-thumb" src="{{ $authoravatar| relURL  }}" alt="Author image" nopin="nopin" />
-                    {{end}}
-
-                    {{/* with $authorname}}
-                        {{$authorname}}
-                    {{end*/}}
+                {{ with .Params.tags }}
+                {{ $mainTag := index . 0 }}
+                <a href="{{ printf "/tags/%s/" ($mainTag | urlize) | relURL }}">#{{ $mainTag }}</a>
                 {{end}}
-
-                {{if .Params.tags }}
-                    {{ range $index, $tag := .Params.tags }}{{ if gt $index 0 }}, {{ end }}
-                        <a href="{{$.Site.BaseURL}}/tags/{{ $tag | urlize }}/">#{{ $tag }}</a>
-                    {{ end }}
-                {{end}}
-                <time class="post-date" datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" | safeHTML }}">
-                    {{ .Date.Format "2 Jan 2006" }}
+                <span>{{ .ReadingTime }} min read</span>
+                <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+                    {{- .Date.Format "2 Jan 2006" -}}
                 </time>
             </footer>
         </div>

@@ -24,20 +24,18 @@
         {{ if not .Params.image }}
         <h1 class="post-title">{{.Title}}</h1>
         {{ end }}
-        <small>{{.Description}}</small>
-
-        <section class="post-meta">
-        {{ if eq .Section "post"}}
-          <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
-            {{ .Date.Format "Jan 2, 2006" }}
-          </time>
-        {{end}}
-        {{ if and (ne .Params.comments false) .Site.Config.Services.Disqus.Shortname }}
-          — <span class="num-comments">
-            <a href="{{ .Permalink }}#disqus_thread" data-disqus-identifier="{{ .RelPermalink }}"></a>
-          </span>
+        {{ with .Description }}
+        <small>{{.}}</small>
         {{ end }}
+
+        {{ if eq .Section "post"}}
+        <section class="post-meta">
+          <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+            {{- .Date.Format "Jan 2, 2006" -}}
+          </time>
+          <span>{{ .ReadingTime }} min read</span>
         </section>
+        {{end}}
     </header>
 
     <section class="post-content">
@@ -45,20 +43,24 @@
     </section>
 
 
+  {{ if eq .Section "post"}}
   <footer class="post-footer">
 
-      <section class="labels">
-          Topics:
-      {{ range .Params.tags }}
-          <span class="post-tag small"><a href="{{$.Site.BaseURL}}/tags/{{ . | urlize }}/">#{{ . }}</a></span>
+    {{ if .Params.tags }}
+    <section class="labels">
+      <span>Topics:</span>
+      {{ range sort .Params.tags -}}
+        <span class="post-tag small"><a href="{{$.Site.BaseURL}}/tags/{{ . | urlize }}/">#{{ . }}</a></span>
       {{ end }}
       </section>
+    {{ end }}
 
-      {{ partial "author.html" . }}
+    {{ partial "author.html" . }}
 
-      {{ partial "disqus.html" . }}
+    {{ partial "disqus.html" . }}
 
   </footer>
+  {{ end }}
 </article>
 
 </main>
