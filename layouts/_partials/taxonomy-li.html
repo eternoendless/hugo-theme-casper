@@ -1,0 +1,13 @@
+<article class="post tags">
+    <div class="post-list-item">
+        <div class="post-list-content">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            </header>
+            <footer class="post-meta">
+                {{ $articleCount := len .Pages }}
+                <span>{{ $articleCount }} {{ if eq $articleCount 1 }}article{{ else }}articles{{ end }}</span>
+            </footer>
+        </div>
+    </div>
+</article>

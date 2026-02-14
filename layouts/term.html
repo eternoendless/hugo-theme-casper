@@ -1,0 +1,13 @@
+{{/* List of articles within a tag */}}
+{{ define "main" }}
+{{ partial "list-header.html" . }}
+
+<main class="content content-list" role="main">
+    {{ $context := . }}
+    {{ range .Paginator.Pages }}
+    {{ partial "li.html" (dict "context" $context "page" . ) }}
+    {{ end }}
+
+    {{ partial "pagination.html" .Paginator }}
+</main>
+{{ end }}

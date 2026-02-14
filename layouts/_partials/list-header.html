@@ -1,0 +1,34 @@
+{{ $cover := .Params.cover | default .Site.Params.cover }}
+{{ if $cover }}
+  {{ $coverURL := $cover }}
+  {{ if not (or (hasPrefix $cover "http://") (hasPrefix $cover "https://")) }}
+    {{ $coverURL = $cover | relURL }}
+  {{ end }}
+  <header class="main-header tag-head" style="background-image: url({{ $coverURL }})">
+{{ else }}
+  <header class="main-header tag-head no-cover">
+{{ end }}
+    {{ partial "nav.html" . }}
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            {{ if eq .Kind "term" }}
+            <div class="page-description">
+                All my articles about
+            </div>
+            {{ end }}
+            <h1 class="page-title">{{ .Title }}</h1>
+            {{ if gt .Paginator.PageNumber 1 }}
+            <div class="page-description">
+                Page {{ .Paginator.PageNumber }}
+            </div>
+            {{ else }} 
+                {{ with .Params.description }}
+                <h2 class="page-description">
+                    {{ . }}
+                </h2>
+                {{ end }}
+            {{ end  }}
+        </div>
+    </div>
+</header>

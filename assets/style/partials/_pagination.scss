@@ -47,7 +47,6 @@
 }
 
 .extra-pagination {
-  display: none;
   border-bottom: #EBF2F6 1px solid;
 
   &:after {
@@ -77,8 +76,4 @@
     max-height: 30vh;
   }
 
-  /* On page2+ show extra pagination controls at the top of post list */
-  .extra-pagination {
-    display: block;
-  }
 }

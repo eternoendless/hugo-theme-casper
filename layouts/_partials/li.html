@@ -1,3 +1,5 @@
+{{ $context := .context }}
+{{ with .page }}
 <article class="post {{ .Section }}">
     <div class="post-list-item">
         {{ with .Params.image }}
@@ -36,10 +38,12 @@
                 </p>
             </section>
             <footer class="post-meta">
-                {{ with .Params.tags }}
-                {{ $mainTag := index . 0 }}
-                <a href="{{ printf "/tags/%s/" ($mainTag | urlize) | relURL }}">#{{ $mainTag }}</a>
-                {{end}}
+                {{ if (ne $context.Kind "term") }}
+                    {{ with .Params.tags }}
+                    {{ $mainTag := index . 0 }}
+                    <a href="{{ printf "/tags/%s/" ($mainTag | urlize) | relURL }}">#{{ $mainTag }}</a>
+                    {{ end }}
+                {{ end }}
                 <span>{{ .ReadingTime }} min read</span>
                 <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
                     {{- .Date.Format "2 Jan 2006" -}}
@@ -48,3 +52,4 @@
         </div>
     </div>
 </article>
+{{ end }}

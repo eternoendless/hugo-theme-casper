@@ -1,0 +1,10 @@
+{{/* List of tags */}}
+{{ define "main" }}
+{{ partial "list-header.html" . }}
+
+<main class="content content-list" role="main">
+	{{ range .Pages.ByTitle }}
+		{{ partial "taxonomy-li.html" . }}
+	{{ end }}
+</main>
+{{ end }}
