@@ -13,7 +13,7 @@
     <div class="vertical">
         <div class="main-header-content inner">
             {{ if eq .Kind "term" }}
-            <div class="page-description">
+            <div class="page-eyebrow">
                 All my articles about
             </div>
             {{ end }}
@@ -33,6 +33,13 @@
                 </h2>
                 {{ end }}
             {{ end  }}
+            {{ if and (eq .Kind "term") (eq .Data.Plural "tags") }}
+            <nav class="tag-navigation" aria-label="Topic navigation">
+                <a href="{{ "tags/" | relURL }}">Browse all topics</a>
+                <span aria-hidden="true">&middot;</span>
+                <a href="{{ .Site.Home.RelPermalink }}">Home</a>
+            </nav>
+            {{ end }}
         </div>
     </div>
 </header>

@@ -12,6 +12,16 @@
     min-height: 240px;
     height: 60vh;
     //padding: 15% 0;
+
+    &.tag-head,
+    &.tag-head.no-cover {
+      min-height: 300px;
+
+      /* fix top nav and page title overlapping */
+      .main-header-content.inner {
+        padding-top: 50px;
+      }
+    }
   }
 
   .scroll-down,

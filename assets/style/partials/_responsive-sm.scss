@@ -1,12 +1,12 @@
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 650px) {
 
   .main-header {
     margin-bottom: 15px;
     height: 40vh;
-  }
 
-  .no-cover.main-header {
-    height: 30vh;
+    &.no-cover {
+      height: 30vh;
+    }
   }
 
   .archive-template .main-header {
@@ -122,7 +122,8 @@
     font-size: 0.85em;
   }
 
-  .page-description {
+  .page-description,
+  .tag-head .page-description {
     font-size: 1.6rem;
   }
 
