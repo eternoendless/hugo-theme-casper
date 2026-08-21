@@ -1,0 +1,7 @@
+{{- $description := "" -}}
+{{- if and (eq .Kind "term") (eq .Data.Plural "tags") -}}
+  {{- $tags := .Site.Data.tags | default (dict) -}}
+  {{- $tag := index $tags (.Data.Term | urlize) | default (dict) -}}
+  {{- $description = $tag.description -}}
+{{- end -}}
+{{- return $description -}}

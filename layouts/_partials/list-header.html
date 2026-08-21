@@ -22,8 +22,12 @@
             <div class="page-description">
                 Page {{ .Paginator.PageNumber }}
             </div>
-            {{ else }} 
-                {{ with .Params.description }}
+            {{ else }}
+                {{ $description := .Params.description }}
+                {{ if and (not $description) (eq .Kind "term") }}
+                    {{ $description = partial "tag-description.html" . }}
+                {{ end }}
+                {{ with $description }}
                 <h2 class="page-description">
                     {{ . }}
                 </h2>
