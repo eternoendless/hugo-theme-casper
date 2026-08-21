@@ -1,3 +1,9 @@
+.author {
+  margin: 2rem 0 0 0;
+  max-width: 500px;
+  display: flex;
+  flex-flow: row;
+}
 
 .author-profile {
   padding: 0 15px 5rem 15px;
@@ -22,22 +28,15 @@
 }
 
 .author-image {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   display: block;
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  margin-left: -40px;
+  flex: none;
+  margin-right: 15px;
   width: 80px;
   height: 80px;
   border-radius: 100%;
   overflow: hidden;
   padding: 6px;
   background: #fff;
-  z-index: 2;
-  box-shadow: #E7EEF2 0 0 0 1px;
 
   .img {
     position: relative;
